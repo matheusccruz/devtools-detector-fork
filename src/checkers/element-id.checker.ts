@@ -1,4 +1,4 @@
-import { isEdge, isIE, isFirefox, createElement } from '../shared/context';
+import { isBrowserEdge, isIE, isFirefox, createElement } from '../shared/context';
 import { clear, log } from '../shared/console';
 import { DevtoolsStatusChecker } from '../types/devtools-status-checker.type';
 import { match } from '../shared/utils';
@@ -28,7 +28,7 @@ export const elementIdChecker: DevtoolsStatusChecker = {
     return match({
       /** 匹配所有浏览器 */
       includes: [true],
-      excludes: [isIE, isEdge, isFirefox],
+      excludes: [isIE, isBrowserEdge, isFirefox],
     });
   },
 };

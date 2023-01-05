@@ -31,9 +31,11 @@ export const isIE =
 
 /** edge */
 export const isEdge = /edge/i.test(userAgent);
+export const isDeviceMotorolaEdge = /motorola edge/i.test(userAgent.toLowerCase());
+export const isBrowserEdge = !isDeviceMotorolaEdge && isEdge;
 
 /** webkit */
-export const isWebkit = /webkit/i.test(userAgent) && !isEdge;
+export const isWebkit = /webkit/i.test(userAgent) && !isBrowserEdge;
 
 export const isIqiyiApp = /IqiyiApp/.test(userAgent);
 

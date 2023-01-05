@@ -1,4 +1,4 @@
-import { isEdge, isIE } from './context';
+import { isBrowserEdge, isIE } from './context';
 
 /**
  * 缓存 console.log 等方法，防止第三方代码 hook console.log 等方法
@@ -7,7 +7,7 @@ import { isEdge, isIE } from './context';
  */
 function cacheConsoleMethod<K extends keyof Console>(name: K): Console[K] {
   if (console) {
-    if (isIE || isEdge) {
+    if (isIE || isBrowserEdge) {
       // IE 没有 console.table
       if (name === 'log' || name === 'clear') {
         return (...args: any[]) => {
