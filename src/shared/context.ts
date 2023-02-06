@@ -16,6 +16,8 @@ declare global {
   }
 }
 
+declare const Sentry: {};
+
 export const userAgent = globalThis?.navigator?.userAgent || 'unknown';
 
 /** firefox */
@@ -64,3 +66,5 @@ export function createElement(
 
 export const inBrowser =
   typeof globalThis.document?.createElement === 'function';
+
+export const hasSentry = !!Sentry;

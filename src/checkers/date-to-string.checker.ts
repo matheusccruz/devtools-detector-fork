@@ -1,5 +1,5 @@
 import { DevtoolsStatusChecker } from '../types/devtools-status-checker.type';
-import { isChrome } from '../shared/context';
+import { hasSentry, isChrome } from '../shared/context';
 import { clear, log } from '../shared/console';
 import { match } from '../shared/utils';
 import { isIpad, isIphone } from '..';
@@ -34,6 +34,7 @@ export const dateToStringChecker: DevtoolsStatusChecker = {
         // isFirefox,
         // ipad 或 iphone 上的 chrome
         (isIpad || isIphone) && isChrome,
+        hasSentry
       ],
     });
   },
