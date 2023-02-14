@@ -67,4 +67,14 @@ export function createElement(
 export const inBrowser =
   typeof globalThis.document?.createElement === 'function';
 
-export const hasSentry = !!Sentry;
+export function verifyHasSentry(): boolean {
+  try {
+    if (Sentry) {
+      return true;
+    }
+
+    return false;
+  } catch (error) {
+    return false
+  }
+}
